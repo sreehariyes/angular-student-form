@@ -1,4 +1,4 @@
-// view.component.ts
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ViewComponent implements OnInit {
   displayedColumns: string[] = [
+    'sno',
     'studentId',
     'studentName',
     'dob',
@@ -65,6 +66,8 @@ export class ViewComponent implements OnInit {
     }
   }
 
+
+  
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -73,7 +76,7 @@ export class ViewComponent implements OnInit {
   // Close Modal
   closeModal(): void {
     this.isModalOpen = false;
-    this.router.navigate(['/students']); // Navigate back to the main page
+    this.router.navigate(['/students']);    // Navigate back to the main page
   }
 
   
@@ -96,6 +99,7 @@ export class ViewComponent implements OnInit {
       .filter((name: string) => name !== '')
       .join(', ');
   }
+
 
   formatDob(dob: string): string {
     return this.datePipe.transform(dob, 'dd-MM-yyyy') || dob;

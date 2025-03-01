@@ -7,19 +7,20 @@
 .main-layout {
   display: flex;
   flex: 1;
+  padding: 0;
+  margin: 0;
 }
 
 .content {
   flex: 1;
-  padding: 20px;
-  margin-left: 220px;
 }
 
 .students-form-wrapper {
   position: relative;
-  padding-top: 150px;
+  padding-top: 10px;
   padding-bottom: 120px;
   margin-left: 200px;
+  padding-left: 10px;
 }
 
 .static-header {
@@ -60,8 +61,8 @@
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  max-height: 70vh;
+  overflow-y: auto; /* Scrollable content */
+  max-height: 70vh; /* Fixed height */
   position: relative;
   z-index: 10;
 }
@@ -114,10 +115,10 @@ form .address-section input {
   margin-bottom: 15px;
 }
 
-form .gender-radio {
+.gender-radio {
   display: flex;
-  justify-content: flex-start;
-  gap: 1px;
+  padding: 1px;
+  width: 300px;
   margin-bottom: 10px;
 }
 
