@@ -1,0 +1,245 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 220px;
+}
+
+.students-form-wrapper {
+  position: relative;
+  padding-top: 150px;
+  padding-bottom: 120px;
+  margin-left: 200px;
+}
+
+.static-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: #f9f9f9;
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+}
+
+.static-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-heading {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.form-heading h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+}
+
+.students-form {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 70vh;
+  position: relative;
+  z-index: 10;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+form input,
+form select {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  margin-bottom: 15px;
+  width: 100%;
+  background-color: #fff;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+form .address-section {
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+form .address-section label {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+form .address-section input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+form .gender-radio {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1px;
+  margin-bottom: 10px;
+}
+
+form .gender-radio input[type="radio"] {
+  margin-right: 4px;
+  margin-left: 0;
+}
+
+form .sports-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.mat-form-field {
+  width: 100%;
+  position: relative; 
+}
+
+.mat-form-field label {
+  position: absolute;
+  top: -10px; 
+  left: 0;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+.mat-select {
+  width: 100%;
+}
+
+.mat-select-panel {
+  position: absolute !important;
+  z-index: 1000 !important;
+  margin-top: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 30px;
+  padding: 0 30px;
+  position: fixed;
+  bottom: 20px;
+  left: 60%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button[type="button"] {
+  background-color: #28a745;
+}
+
+button[type="button"]:hover {
+  background-color: #218838;
+}
+
+footer {
+  background-color: azure;
+  color: black;
+  padding: 8px 15px;
+  text-align: center;
+  font-size: 12px;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .students-form-wrapper {
+    margin-left: 0;
+  }
+
+  .submit-buttons {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+  }
+}
+.mat-select-value {
+  color: inherit !important; 
+}
+
+.mat-select-placeholder {
+  color: rgba(0, 0, 0, 0.54); 
+}

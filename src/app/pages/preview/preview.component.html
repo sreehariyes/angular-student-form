@@ -1,0 +1,71 @@
+<div class="preview-container">
+  <div class="student-details">
+    <h2>Student Details</h2>
+    <div class="details-grid">
+      <div><strong>Student ID:</strong> {{ studentDetails.studentId }}</div>
+      <div><strong>Student Name:</strong> {{ studentDetails.studentName }}</div>
+      <div><strong>Date of Birth:</strong> {{ studentDetails.dob }}</div>
+      <div><strong>Age:</strong> {{ studentMarksData.age }}</div>
+      <div><strong>Gender:</strong> {{ studentDetails.gender }}</div>
+      <div><strong>Email:</strong> {{ studentDetails.email }}</div>
+      <div><strong>Course:</strong> {{ studentDetails.course }}</div>
+      <div><strong>Sports:</strong> {{ getSelectedSports() }}</div>
+    </div>
+  </div>
+
+  <div class="marks-details">
+    <h2>Marks Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Subject</th>
+          <th>Total Marks</th>
+          <th>Marks Obtained</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Maths</td>
+          <td>100</td>
+          <td>{{ studentMarksData.marks.mathsMarks }}</td>
+          <td>{{ getSubjectGrade(studentMarksData.marks.mathsMarks) }}</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>English</td>
+          <td>100</td>
+          <td>{{ studentMarksData.marks.englishMarks }}</td>
+          <td>{{ getSubjectGrade(studentMarksData.marks.englishMarks) }}</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Computer</td>
+          <td>100</td>
+          <td>{{ studentMarksData.marks.computerMarks }}</td>
+          <td>{{ getSubjectGrade(studentMarksData.marks.computerMarks) }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><strong>Total</strong></td>
+          <td><strong>300</strong></td>
+          <td><strong>{{ studentMarksData.totalMarks }}</strong></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="summary">
+      <p><strong>Percentage:</strong> {{ studentMarksData.percentage }}%</p>
+      <p><strong>Overall Grade:</strong> {{ studentMarksData.grade }}</p>
+    </div>
+  </div>
+
+  <div class="button-container">
+    
+    <button type="button" (click)="onPrint()">Print</button>
+  </div>
+</div>

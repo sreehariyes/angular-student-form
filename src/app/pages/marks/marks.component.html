@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="marks-form">
+    <h2>Marks List</h2>
+
+    <!-- Row for Student Name -->
+    <label for="studentName">Student Name</label>
+    <input type="text" id="studentName" [(ngModel)]="studentMarksData.studentName" readonly />
+
+    <!-- Row for Date of Birth and Age -->
+    <div class="dob-age-row">
+      <div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" [(ngModel)]="studentMarksData.dob" (ngModelChange)="onDobChange()" />
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input type="number" id="age" [(ngModel)]="studentMarksData.age" readonly />
+      </div>
+    </div>
+
+    <h3>Marks</h3>
+    <table>
+      <tr>
+        <td><label for="mathsMarks">Maths Marks</label></td>
+        <td><input type="number" id="mathsMarks" [(ngModel)]="studentMarksData.marks.mathsMarks" (ngModelChange)="validateMarks('mathsMarks')" /></td>
+      </tr>
+      <tr>
+        <td><label for="englishMarks">English Marks</label></td>
+        <td><input type="number" id="englishMarks" [(ngModel)]="studentMarksData.marks.englishMarks" (ngModelChange)="validateMarks('englishMarks')" /></td>
+      </tr>
+      <tr>
+        <td><label for="computerMarks">Computer Marks</label></td>
+        <td><input type="number" id="computerMarks" [(ngModel)]="studentMarksData.marks.computerMarks" (ngModelChange)="validateMarks('computerMarks')" /></td>
+      </tr>
+      <tr>
+        <td><strong>Total Marks</strong></td>
+        <td><strong>{{ studentMarksData.totalMarks }}</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Average Marks</strong></td>
+        <td><strong>{{ studentMarksData.avgMarks }}</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Percentage</strong></td>
+        <td><strong>{{ studentMarksData.percentage }}%</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Grade</strong></td>
+        <td><strong>{{ studentMarksData.grade }}</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Static Button Container -->
+  <div class="button-container">
+    <button type="button" (click)="onPreview()">Preview</button>
+    <button type="button" (click)="onBack()">Back</button>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="students-form-wrapper">
+  <h1 class="form-heading">Student Enrollment Form</h1>
+
+  <div class="students-form">
+    <form [formGroup]="studentsForm" (ngSubmit)="onSubmit()">
+      <div class="form-container">
+        
+        
+        <label for="studentId">Student ID:</label>
+        <input
+          id="studentId"
+          formControlName="studentId"
+          type="text"
+          (input)="onStudentIdChange()"
+        />
+
+        
+        <label for="studentName">Student Name:</label>
+        <input id="studentName" formControlName="studentName" type="text" />
+
+        
+        <label for="dob">Date of Birth:</label>
+        <input
+          id="dob"
+          formControlName="dob"
+          type="date"
+          (change)="validateAge(studentsForm.get('dob'))"
+        />
+
+        
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" type="email" />
+
+        
+        <label for="gender">Gender:</label>
+        <div class="gender-radio">
+          <input type="radio" id="male" formControlName="gender" value="1" />
+          <label for="male">Male</label>
+          <input type="radio" id="female" formControlName="gender" value="2" />
+          <label for="female">Female</label>
+        </div>
+
+      
+        <label for="state">State:</label>
+        <select id="state" formControlName="state" (change)="onStateChange($event)">
+          <option *ngFor="let state of statesList" [value]="state">{{ state }}</option>
+        </select>
+
+        
+        <label for="district">District:</label>
+        <select id="district" formControlName="district">
+          <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+        </select>
+
+        
+        <label for="course">Course:</label>
+        <select id="course" formControlName="course">
+          <option *ngFor="let course of availableCourses" [value]="course.id">{{ course.name }}</option>
+        </select>
+
+      
+        <div class="sports-section">
+          <label for="sports">Sports:</label>
+          <mat-form-field appearance="fill" class="sports-dropdown">
+            <mat-label>Select Sports</mat-label>
+            <mat-select id="sports" formControlName="sports" multiple>
+              <mat-option *ngFor="let sport of availableSports" [value]="sport.id">
+                {{ sport.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        
+        <div class="address-section">
+          <label>Address</label><br />
+          <label for="houseName">House Name:</label>
+          <input id="houseName" formControlName="houseName" type="text" />
+
+          <label for="street">Street:</label>
+          <input id="street" formControlName="street" type="text" />
+
+          <label for="city">City:</label>
+          <input id="city" formControlName="city" type="text" />
+
+          <label for="postOffice">Post Office:</label>
+          <input id="postOffice" formControlName="postOffice" type="text" />
+
+          <label for="pincode">Pincode:</label>
+          <input id="pincode" formControlName="pincode" type="text" maxlength="6" />
+        </div>
+      </div>
+
+      
+      <div class="submit-buttons">
+        <button type="submit" [disabled]="studentsForm.invalid">Submit</button>
+        <button type="button" (click)="onNext()" [disabled]="studentsForm.invalid">Next</button>
+        <button type="button" (click)="onView()">View Details</button>
+      </div>
+    </form>
+  </div>
+</div>
