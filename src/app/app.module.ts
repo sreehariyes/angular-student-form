@@ -10,6 +10,7 @@ import { StudentsComponent } from './pages/students/students.component';
 import { MarksComponent } from './pages/marks/marks.component';
 import { PreviewComponent } from './pages/preview/preview.component';
 import { ViewComponent } from './pages/view/view.component';
+import { ViewDialogComponent } from './pages/view-dialog/view-dialog.component';
 
 // Angular Material Modules
 import { MatDialogModule } from '@angular/material/dialog';
@@ -29,11 +30,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Add these modules for the dropdown with checkboxes
+// Modules for dropdown with checkboxes and form fields
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-// Add DatePipe for formatting dates
+// DatePipe for formatting dates
 import { DatePipe } from '@angular/common';
 
 @NgModule({
@@ -46,6 +47,7 @@ import { DatePipe } from '@angular/common';
     MarksComponent,
     PreviewComponent,
     ViewComponent,
+    ViewDialogComponent, // Ensure this is declared
   ],
   imports: [
     BrowserModule,
@@ -54,8 +56,8 @@ import { DatePipe } from '@angular/common';
     AppRoutingModule,
 
     // Angular Material Modules
-    MatTableModule,
     MatDialogModule,
+    MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
@@ -75,7 +77,10 @@ import { DatePipe } from '@angular/common';
     MatCheckboxModule,
     MatFormFieldModule,
   ],
-  providers: [DatePipe], 
+  providers: [
+    DatePipe, // Add DatePipe to providers
+  ],
   bootstrap: [AppComponent],
+  entryComponents: [ViewDialogComponent], // Add ViewDialogComponent to entryComponents
 })
 export class AppModule {}

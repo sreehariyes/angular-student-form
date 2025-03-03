@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Student Details</h2>
+<mat-dialog-content>
+  <div class="student-details">
+    <p><strong>Student ID:</strong> {{ data.studentId }}</p>
+    <p><strong>Student Name:</strong> {{ data.studentName }}</p>
+    <p><strong>Date of Birth:</strong> {{ data.dob }}</p>
+    <p><strong>Email:</strong> {{ data.email }}</p>
+    <p><strong>Gender:</strong> {{ data.gender === '1' ? 'Male' : 'Female' }}</p>
+    <p><strong>State:</strong> {{ data.state }}</p>
+    <p><strong>District:</strong> {{ data.district }}</p>
+    <p><strong>Course:</strong> {{ data.course }}</p>
+    <p><strong>Sports:</strong> {{ data.sports.join(', ') }}</p>
+    <p><strong>Address:</strong></p>
+    <p>{{ data.houseName }}, {{ data.street }}, {{ data.city }}, {{ data.postOffice }}, {{ data.pincode }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

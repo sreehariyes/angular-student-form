@@ -12,6 +12,7 @@
           formControlName="studentId"
           type="text"
           (input)="onStudentIdChange()"
+          
         />
 
         
@@ -71,6 +72,22 @@
           </mat-form-field>
         </div>
 
+        <!-- <div class="sports-section">
+          <label for="sports">Sports:</label>
+          <div class="custom-dropdown">
+            <div class="selected-items" (click)="toggleDropdown()">
+              {{ selectedSports.length > 0 ? selectedSports.join(', ') : 'Select Sports' }}
+            </div>
+            <div class="dropdown-options" *ngIf="isDropdownOpen">
+              <div *ngFor="let sport of availableSports" (click)="toggleSport(sport.id)">
+                <input type="checkbox" [checked]="isSelected(sport.id)" />
+                {{ sport.name }}
+              </div>
+            </div>
+          </div>
+        </div> -->
+        
+
         
         <div class="address-section">
           <label>Address</label><br />
@@ -96,6 +113,7 @@
         <button type="submit" [disabled]="studentsForm.invalid">Submit</button>
         <button type="button" (click)="onNext()" [disabled]="studentsForm.invalid">Next</button>
         <button type="button" (click)="onView()">View Details</button>
+        <button type="button" (click)="openViewDialog()">View Dialog</button>
       </div>
     </form>
   </div>

@@ -1,16 +1,24 @@
+/* Sidebar styling */
 nav {
-    background-color: azure;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 180px;
-    color: white;
-    font-family: Arial, sans-serif;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
+  width: 200px; /* Fixed width for the sidebar */
+  height: 100vh; /* Full height */
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  background-color: #f4f4f4; /* Light background */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  z-index: 100; /* Ensure sidebar is above other content */
+}
+
+/* Main content styling */
+.main-content {
+  margin-left: 220px; /* Add margin to avoid overlap with sidebar */
+  padding: 20px; /* Add padding for spacing */
+  width: calc(100% - 220px); /* Adjust width to fit remaining space */
   
+    z-index: 200; /* Higher than sidebar */
+  
+}
   nav ul {
     list-style-type: none;
     padding: 0;

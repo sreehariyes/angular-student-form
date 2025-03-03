@@ -1,3 +1,4 @@
+/* Ensure the footer has a lower z-index */
 footer {
   background-color: azure;
   color: black;
@@ -7,6 +8,8 @@ footer {
   position: relative; /* Keep footer in normal flow */
   width: 100%;
   margin-top: 20px; /* Adds space between the content and footer */
+  z-index: 100; /* Lower than the dialog */
+  border: 2px solid blue !important; /* Debug: Highlight footer */
 }
 
 .container {

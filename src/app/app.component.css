@@ -1,28 +1,25 @@
-.container {
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+/* Ensure the dialog overlay is on top of everything */
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 100000 !important; /* Extremely high z-index */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
 }
 
-.main-layout {
-  display: flex;
-  flex: 1;
+/* Prevent scrolling when the dialog is open */
+body.dialog-open {
+  overflow: hidden !important;
 }
 
-/* Content expands to fill space */
-.content {
-  flex: 1;
-  padding: 20px;
-  margin-left: 220px; /* Space for sidebar */
-}
-
-/* Responsive for mobile */
-@media (max-width: 768px) {
-  .main-layout {
-    flex-direction: column;
-  }
-
-  .content {
-    margin-left: 0; /* No sidebar margin on small screens */
-  }
+/* Ensure the body and html are not restricted by default */
+body, html {
+  overflow: visible !important;
 }

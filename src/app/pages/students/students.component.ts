@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSelectModule } from '@angular/material/select';  // Make sure this is imported if using Material select
+import { MatFormFieldModule } from '@angular/material/form-field'; // Make sure this is imported if using Material form-field
+import { MatDialog } from '@angular/material/dialog';
+import { ViewDialogComponent } from '../view-dialog/view-dialog.component';
+
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.css'],
 })
+
+
+
 export class StudentsComponent implements OnInit {
   studentsForm!: FormGroup; // The form group to hold student data
   studentRecords: any[] = []; // Array to store student records
@@ -25,6 +33,9 @@ export class StudentsComponent implements OnInit {
     { id: '5', name: 'Volleyball' },
   ];
 
+
+
+  
   states: { [key: string]: string[] } = { // Mapping of states to their districts
     Kerala: ['Trivandrum', 'Kollam', 'Alappuzha'],
     Karnataka: ['Bangalore', 'Mysore', 'Mangalore'],
@@ -34,7 +45,7 @@ export class StudentsComponent implements OnInit {
   districts: string[] = []; // Array to hold districts based on selected state
   statesList = ['Kerala', 'Karnataka', 'Goa']; // List of states for dropdown
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private dialog: MatDialog,private router: Router) {}
 
   ngOnInit(): void {
     // Initialize the form with the necessary fields and validations
@@ -59,6 +70,8 @@ export class StudentsComponent implements OnInit {
         Validators.minLength(6),
       ]],
     });
+
+    
 
     // Load stored student records from localStorage if available
     const storedRecords = localStorage.getItem('studentRecords');
@@ -104,6 +117,29 @@ export class StudentsComponent implements OnInit {
     this.districts = this.states[state] || []; // Update districts based on state change
     this.studentsForm.get('district')?.setValue(''); // Reset district field
   }
+
+  openViewDialog(): void {
+    // Add class to body to prevent scrolling
+    document.body.classList.add('dialog-open');
+  
+    // Open the dialog
+    const dialogRef = this.dialog.open(ViewDialogComponent, {
+      width: '500px',
+      data: this.studentsForm.value,
+    });
+  
+    // Remove class from body when the dialog is closed
+    dialogRef.afterClosed().subscribe(() => {
+      document.body.classList.remove('dialog-open');
+    });
+  }
+  
+
+
+
+
+
+
 
   // Handles form submission add or updation of student record
   onSubmit(): void {
@@ -171,3 +207,8 @@ export class StudentsComponent implements OnInit {
     }
   }
 }
+
+
+
+
+

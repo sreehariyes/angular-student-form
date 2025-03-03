@@ -24,16 +24,18 @@
     <div class="table-container">
       <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <!-- Serial Number -->
-        <ng-container matColumnDef="sno">
-          <th mat-header-cell *matHeaderCellDef class="header-cell">S.No.</th>
-          <td mat-cell *matCellDef="let student; let i = index">{{ i + 1 }}</td>
-        </ng-container>
+       <!-- Serial Number -->
+       <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef class="header-cell sno">S.No.</th>
+        <td mat-cell *matCellDef="let student; let i = index" class="sno">{{ i + 1 }}</td>
+      </ng-container>
+      
+      <!-- Student ID -->
+      <ng-container matColumnDef="studentId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell studentId">Student ID</th>
+        <td mat-cell *matCellDef="let student" class="studentId">{{ student.studentId }}</td>
+      </ng-container>
 
-        <!-- Student ID -->
-        <ng-container matColumnDef="studentId">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Student ID</th>
-          <td mat-cell *matCellDef="let student">{{ student.studentId }}</td>
-        </ng-container>
 
         <!-- Student Name -->
         <ng-container matColumnDef="studentName">
@@ -55,8 +57,8 @@
 
         <!-- Email -->
         <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Email</th>
-          <td mat-cell *matCellDef="let student">{{ student.email }}</td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell email">Email</th>
+          <td mat-cell *matCellDef="let student" class="email">{{ student.email }}</td>
         </ng-container>
 
         <!-- Course -->
@@ -73,8 +75,8 @@
 
         <!-- Address -->
         <ng-container matColumnDef="address">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Address</th>
-          <td mat-cell *matCellDef="let student">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell address">Address</th>
+          <td mat-cell *matCellDef="let student" class="address">
             {{ student.houseName }}, {{ student.street }}, {{ student.city }},
             {{ student.district }}, {{ student.state }}, {{ student.pincode }}
           </td>
